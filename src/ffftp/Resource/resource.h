@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by FFFTP.rc
+// Used by ffftp.rc
 //
 #define DELETE_ALL                      3
 #define DELETE_NO                       4
@@ -20,6 +20,7 @@
 #define rename_dlg                      110
 #define hlist_bmp                       110
 #define delete_dlg                      111
+#define dirattr16_bmp                   111
 #define hostlist_dlg                    112
 #define hostset_dlg                     113
 #define hset_main_dlg                   113
@@ -100,7 +101,7 @@
 #define rasreconnect_dlg                178
 #define dial_dlg                        179
 #define dial_password_dlg               180
-#define opt_disp_dlg                    181
+#define opt_disp1_dlg                   181
 #define bmark_edit_dlg                  182
 #define opt_tool_dlg1                   183
 #define IDD_OLEDRAG                     184
@@ -108,6 +109,17 @@
 #define forcepasschange_dlg             186
 #define newmasterpasswd_dlg             187
 #define masterpasswd_dlg                188
+#define hset_crypt_dlg                  189
+#define hset_adv3_dlg                   190
+#define savecrypt_dlg                   191
+#define updatesslroot_dlg               192
+#define updown_as_with_ext_dlg          193
+#define ini_from_reg_dlg                194
+#define opt_trmode4_dlg                 195
+#define opt_disp2_dlg                   196
+#define opt_updates_dlg                 197
+#define corruptsettings_dlg             198
+#define ssl_confirm_dlg                 199
 #define TRANS_TIME_BAR                  1002
 #define TRANS_TEXT                      1003
 #define TRANS_REMOTE                    1003
@@ -198,6 +210,7 @@
 #define FIRE_RESOLV                     1013
 #define HSET_DIALNOTIFY                 1013
 #define MIRROR_DOWNDEL_NOTIFY           1013
+#define DISP_ICON                       1013
 #define OPT1_EDITOR_BR                  1014
 #define PERM_G_WRITE                    1014
 #define SORT_RDIR_REV                   1014
@@ -208,20 +221,28 @@
 #define CONNECT_RASCLOSE                1014
 #define FIRE_LOWER                      1014
 #define MIRROR_TIMECHECK                1014
+#define TRMODE_MAKEDIR                  1014
+#define DISP_SECOND                     1014
 #define TOOL_EDITOR_BR                  1015
 #define PERM_A_READ                     1015
 #define SOUND_TRNNG                     1015
 #define TOOL_EDITOR1_BR                 1015
 #define CONNECT_CLOSE_NOTIFY            1015
+#define DISP2_PERMIT_NUM                1015
+#define MISC_ENCRYPT_SETTINGS           1015
+#define FIRE_SHARED                     1015
 #define PERM_O_EXEC                     1016
 #define TOOL_EDITOR2_BR                 1016
 #define CONNECT_QUICK_ANONY             1016
+#define DISP2_AUTO_REFRESH              1016
 #define PERM_G_EXEC                     1017
 #define TOOL_EDITOR3_BR                 1017
 #define CONNECT_SENDQUIT                1017
+#define DISP2_REMOVE_OLD_LOG            1017
 #define PERM_A_WRITE                    1018
 #define CONNECT_NORAS                   1018
 #define PERM_A_EXEC                     1019
+#define CONNECT_UPNP                    1019
 #define PERM_TEXT                       1020
 #define PERM_NOW                        1021
 #define SORT_LFILE_FILE                 1022
@@ -272,7 +293,7 @@
 #define HSET_FIREWAL                    1061
 #define HSET_FIREWALL                   1061
 #define FIRE_TYPE1                      1062
-#define HSET_FN_NO_CNV                  1062
+#define HSET_FN_AUTO_CNV                1062
 #define FIRE_TYPE4                      1063
 #define HSET_FN_JIS_CNV                 1063
 #define FIRE_TYPE3                      1064
@@ -353,6 +374,7 @@
 #define UPDOWNAS_TEXT                   1113
 #define UPDOWNAS_NEW                    1114
 #define UPDOWNAS_STOP                   1115
+#define UPDOWNAS_FILECODE               1116
 #define SEL_FNAME                       1117
 #define SEL_REGEXP                      1118
 #define SEL_NOEXIST                     1119
@@ -416,6 +438,43 @@
 #define IDC_EDIT1                       1191
 #define MOVE_NOTIFY_TEXT                1194
 #define COMMON_TEXT                     1194
+#define HSET_SJIS_CNV                   1195
+#define HSET_UTF8N_CNV                  1196
+#define HSET_FN_SJIS_CNV                1197
+#define HSET_NO_ENCRYPTION              1198
+#define HSET_FTPES                      1199
+#define HSET_FTPIS                      1200
+#define HSET_SFTP                       1201
+#define PKEY_FILE_BR                    1202
+#define HSET_PRIVATE_KEY                1203
+#define HSET_THREAD_COUNT               1204
+#define HSET_THREAD_COUNT_SPN           1205
+#define HSET_UTF8BOM_CNV                1206
+#define HSET_REUSE_SOCKET               1207
+#define HSET_NOOP_INTERVAL              1208
+#define HSET_NOOP_INTERVAL_SPN          1209
+#define HSET_NETTYPE                    1210
+#define HSET_ERROR_MODE                 1211
+#define HSET_MLSDCMD                    1212
+#define DOWN_EXIST_LARGE                1213
+#define UP_EXIST_LARGE                  1214
+#define TRMODE4_SJIS_CNV                1215
+#define TRMODE4_JIS_CNV                 1216
+#define TRMODE4_EUC_CNV                 1217
+#define TRMODE4_UTF8N_CNV               1218
+#define TRMODE4_UTF8BOM_CNV             1219
+#define HSET_ERROR_RECONNECT            1220
+#define HSET_FN_UTF8HFSX_CNV            1221
+#define UPDATES_AUTO_CHECK              1222
+#define UPDATES_AUTO_APPLY              1223
+#define UPDATES_INTERVAL                1224
+#define UPDATES_INTERVAL_SPN            1225
+#define HSET_NO_WEAK                    1226
+#define HOST_SET_DEFAULT                1227
+#define TRMODE_LISTERROR                1228
+#define MIRROR_NO_TRANSFER              1229
+#define HSET_NO_PASV_ADRS               1230
+#define TRMODE4_MARK_INTERNET           1231
 #define MENU_END                        40001
 #define MENU_EXIT                       40001
 #define MENU_CONNECT                    40003
@@ -467,21 +526,25 @@
 #define MENU_HELP                       40040
 #define MENU_BMARK_ADD                  40041
 #define MENU_BMARK_EDIT                 40042
-#define MENU_KNJ_EUC                    40043
-#define MENU_KNJ_JIS                    40044
-#define MENU_KNJ_NONE                   40045
-#define MENU_UPDIR                      40046
-#define MENU_DCLICK                     40047
-#define MENU_SELECT                     40049
-#define MENU_SELECT_ALL                 40050
-#define MENU_FIND                       40051
-#define MENU_FINDNEXT                   40052
-#define MENU_DOTFILE                    40054
-#define MENU_IMPORT_WS                  40056
-#define ID_BUTTON40058                  40058
-#define ID_BUTTON40059                  40059
-#define ID_BUTTON40060                  40060
-#define ID_BUTTON40061                  40061
+#define MENU_KNJ_SJIS                   40043
+#define MENU_KNJ_EUC                    40044
+#define MENU_KNJ_JIS                    40045
+#define MENU_KNJ_UTF8N                  40046
+#define MENU_KNJ_UTF8BOM                40047
+#define MENU_KNJ_NONE                   40048
+#define MENU_L_KNJ_SJIS                 40049
+#define MENU_L_KNJ_EUC                  40050
+#define MENU_L_KNJ_JIS                  40051
+#define MENU_L_KNJ_UTF8N                40052
+#define MENU_L_KNJ_UTF8BOM              40053
+#define MENU_UPDIR                      40054
+#define MENU_DCLICK                     40055
+#define MENU_SELECT                     40056
+#define MENU_SELECT_ALL                 40057
+#define MENU_FIND                       40058
+#define MENU_FINDNEXT                   40059
+#define MENU_DOTFILE                    40060
+#define MENU_IMPORT_WS                  40061
 #define ID_BUTTON40062                  40062
 #define ID_BUTTON40063                  40063
 #define ID_BUTTON40064                  40064
@@ -586,6 +649,16 @@
 #define MENU_REGLOAD                    40170
 #define MENU_XFRMODE                    40171
 #define MENU_CHANGEPASSWD               40172
+#define ID_BUTTON40173                  40173
+#define ID_BUTTON40174                  40174
+#define ID_BUTTON40175                  40175
+#define MENU_SWITCH_OSS                 40176
+#define MENU_OPEN                       40177
+#define MENU_FW_FTP_FILTER              40178
+#define MENU_REMOTE_MOVE_UPDIR          40179
+#define MENU_EXPORT_FILEZILLA_XML       40180
+#define MENU_UPDATES_CHECK              40181
+#define MENU_EXPORT_WINSCP_INI          40182
 #define FSNOTIFY_TITLE                  65535
 #define HOST_SIZEGRIP                   65535
 
@@ -593,9 +666,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        189
-#define _APS_NEXT_COMMAND_VALUE         40173
-#define _APS_NEXT_CONTROL_VALUE         1195
+#define _APS_NEXT_RESOURCE_VALUE        200
+#define _APS_NEXT_COMMAND_VALUE         40183
+#define _APS_NEXT_CONTROL_VALUE         1232
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

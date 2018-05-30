@@ -10,14 +10,17 @@
 		<Platform
 			Name="Win32"
 		/>
+		<Platform
+			Name="x64"
+		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
 	<Configurations>
 		<Configuration
-			Name="Release|Win32"
-			OutputDirectory=".\FFFTP_Eng_Release"
-			IntermediateDirectory=".\FFFTP_Eng_Release"
+			Name="Debug|Win32"
+			OutputDirectory=".\FFFTP_Eng_Debug"
+			IntermediateDirectory=".\FFFTP_Eng_Debug"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
 			UseOfMFC="0"
@@ -25,6 +28,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="utf8msg.exe src\mesg-eng.h src\mesg-eng.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -37,33 +41,33 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
+				PreprocessorDefinitions="_DEBUG"
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\FFFTP_Eng_Release/FFFTP_English.tlb"
+				TypeLibraryName=".\FFFTP_Eng_Debug\FFFTP_English.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="Resource_eng"
-				PreprocessorDefinitions="WIN32,NDEBUG,_WINDOWS,_WIN32_IE=0x300,_CRT_SECURE_NO_WARNINGS,ENGLISH"
-				StringPooling="true"
-				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				PrecompiledHeaderFile=".\FFFTP_Eng_Release/FFFTP_English.pch"
-				AssemblerListingLocation=".\FFFTP_Eng_Release/"
-				ObjectFile=".\FFFTP_Eng_Release/"
-				ProgramDataBaseFileName=".\FFFTP_Eng_Release/"
+				Optimization="0"
+				AdditionalIncludeDirectories="Resource_eng;contrib\openssl\include"
+				PreprocessorDefinitions="WIN32,_DEBUG,_WINDOWS,WINVER=0x0500,_WIN32_WINNT=0x0500,_WIN32_IE=0x0500,_CRT_SECURE_NO_WARNINGS,FFFTP_ENGLISH"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				PrecompiledHeaderFile=".\FFFTP_Eng_Debug\FFFTP_English.pch"
+				AssemblerListingLocation=".\FFFTP_Eng_Debug\"
+				ObjectFile=".\FFFTP_Eng_Debug\"
+				ProgramDataBaseFileName=".\FFFTP_Eng_Debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
+				DebugInformationFormat="4"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
+				PreprocessorDefinitions="_DEBUG"
 				Culture="1033"
 			/>
 			<Tool
@@ -71,13 +75,16 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="wsock32.lib comctl32.lib winmm.lib htmlhelp.lib"
-				OutputFile="FFFTP_Eng_Release/FFFTP.exe"
-				LinkIncremental="1"
+				AdditionalDependencies="comctl32.lib crypt32.lib htmlhelp.lib imagehlp.lib rasapi32.lib sfc.lib uuid.lib winmm.lib wintrust.lib winhttp.lib ws2_32.lib"
+				OutputFile=".\FFFTP_Eng_Debug\FFFTP.exe"
+				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				ProgramDatabaseFile=".\FFFTP_Eng_Release/FFFTP.pdb"
+				GenerateManifest="false"
+				DelayLoadDLLs="advapi32.dll;comctl32.dll;crypt32.dll;comdlg32.dll;gdi32.dll;imagehlp.dll;ole32.dll;oleaut32.dll;sfc.dll;shell32.dll;user32.dll;winmm.dll;wintrust.dll;winhttp.dll;ws2_32.dll"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=".\FFFTP_Eng_Debug\FFFTP.pdb"
 				SubSystem="2"
+				TargetMachine="1"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -105,9 +112,9 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|Win32"
-			OutputDirectory=".\FFFTP_Eng_Debug"
-			IntermediateDirectory=".\FFFTP_Eng_Debug"
+			Name="Debug|x64"
+			OutputDirectory=".\FFFTP_Eng_Debug_64"
+			IntermediateDirectory=".\FFFTP_Eng_Debug_64"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
 			UseOfMFC="0"
@@ -115,6 +122,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="utf8msg.exe src\mesg-eng.h src\mesg-eng.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -131,19 +139,19 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\FFFTP_Eng_Debug/FFFTP_English.tlb"
+				TypeLibraryName=".\FFFTP_Eng_Debug_64\FFFTP_English.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="Resource_eng"
-				PreprocessorDefinitions="WIN32,_DEBUG,_WINDOWS,_WIN32_IE=0x300,_CRT_SECURE_NO_WARNINGS,ENGLISH"
+				AdditionalIncludeDirectories="Resource_eng;contrib\openssl\include"
+				PreprocessorDefinitions="WIN32,_DEBUG,_WINDOWS,WINVER=0x0500,_WIN32_WINNT=0x0500,_WIN32_IE=0x0500,_CRT_SECURE_NO_WARNINGS,FFFTP_ENGLISH"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\FFFTP_Eng_Debug/FFFTP_English.pch"
-				AssemblerListingLocation=".\FFFTP_Eng_Debug/"
-				ObjectFile=".\FFFTP_Eng_Debug/"
-				ProgramDataBaseFileName=".\FFFTP_Eng_Debug/"
+				PrecompiledHeaderFile=".\FFFTP_Eng_Debug_64\FFFTP_English.pch"
+				AssemblerListingLocation=".\FFFTP_Eng_Debug_64\"
+				ObjectFile=".\FFFTP_Eng_Debug_64\"
+				ProgramDataBaseFileName=".\FFFTP_Eng_Debug_64\"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -161,14 +169,202 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="wsock32.lib comctl32.lib winmm.lib htmlhelp.lib"
-				OutputFile="FFFTP_Eng_Debug/FFFTP.exe"
+				AdditionalDependencies="comctl32.lib crypt32.lib htmlhelp.lib imagehlp.lib rasapi32.lib sfc.lib uuid.lib winmm.lib wintrust.lib winhttp.lib ws2_32.lib"
+				OutputFile=".\FFFTP_Eng_Debug_64\FFFTP.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
+				GenerateManifest="false"
+				DelayLoadDLLs="advapi32.dll;comctl32.dll;crypt32.dll;comdlg32.dll;gdi32.dll;imagehlp.dll;ole32.dll;oleaut32.dll;sfc.dll;shell32.dll;user32.dll;winmm.dll;wintrust.dll;winhttp.dll;ws2_32.dll"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\FFFTP_Eng_Debug/FFFTP.pdb"
+				ProgramDatabaseFile=".\FFFTP_Eng_Debug_64\FFFTP.pdb"
 				SubSystem="2"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory=".\FFFTP_Eng_Release"
+			IntermediateDirectory=".\FFFTP_Eng_Release"
+			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="utf8msg.exe src\mesg-eng.h src\mesg-eng.h"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\FFFTP_Eng_Release\FFFTP_English.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="Resource_eng;contrib\openssl\include"
+				PreprocessorDefinitions="WIN32,NDEBUG,_WINDOWS,WINVER=0x0500,_WIN32_WINNT=0x0500,_WIN32_IE=0x0500,_CRT_SECURE_NO_WARNINGS,FFFTP_ENGLISH"
+				StringPooling="true"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				PrecompiledHeaderFile=".\FFFTP_Eng_Release\FFFTP_English.pch"
+				AssemblerListingLocation=".\FFFTP_Eng_Release\"
+				ObjectFile=".\FFFTP_Eng_Release\"
+				ProgramDataBaseFileName=".\FFFTP_Eng_Release\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="comctl32.lib crypt32.lib htmlhelp.lib imagehlp.lib rasapi32.lib sfc.lib uuid.lib winmm.lib wintrust.lib winhttp.lib ws2_32.lib"
+				OutputFile=".\FFFTP_Eng_Release\FFFTP.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				GenerateManifest="false"
+				DelayLoadDLLs="advapi32.dll;comctl32.dll;crypt32.dll;comdlg32.dll;gdi32.dll;imagehlp.dll;ole32.dll;oleaut32.dll;sfc.dll;shell32.dll;user32.dll;winmm.dll;wintrust.dll;winhttp.dll;ws2_32.dll"
+				ProgramDatabaseFile=".\FFFTP_Eng_Release\FFFTP.pdb"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory=".\FFFTP_Eng_Release_64"
+			IntermediateDirectory=".\FFFTP_Eng_Release_64"
+			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="utf8msg.exe src\mesg-eng.h src\mesg-eng.h"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\FFFTP_Eng_Release_64\FFFTP_English.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="Resource_eng;contrib\openssl\include"
+				PreprocessorDefinitions="WIN32,NDEBUG,_WINDOWS,WINVER=0x0500,_WIN32_WINNT=0x0500,_WIN32_IE=0x0500,_CRT_SECURE_NO_WARNINGS,FFFTP_ENGLISH"
+				StringPooling="true"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				PrecompiledHeaderFile=".\FFFTP_Eng_Release_64\FFFTP_English.pch"
+				AssemblerListingLocation=".\FFFTP_Eng_Release_64\"
+				ObjectFile=".\FFFTP_Eng_Release_64\"
+				ProgramDataBaseFileName=".\FFFTP_Eng_Release_64\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="comctl32.lib crypt32.lib htmlhelp.lib imagehlp.lib rasapi32.lib sfc.lib uuid.lib winmm.lib wintrust.lib winhttp.lib ws2_32.lib"
+				OutputFile=".\FFFTP_Eng_Release_64\FFFTP.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				GenerateManifest="false"
+				DelayLoadDLLs="advapi32.dll;comctl32.dll;crypt32.dll;comdlg32.dll;gdi32.dll;imagehlp.dll;ole32.dll;oleaut32.dll;sfc.dll;shell32.dll;user32.dll;winmm.dll;wintrust.dll;winhttp.dll;ws2_32.dll"
+				ProgramDatabaseFile=".\FFFTP_Eng_Release_64\FFFTP.pdb"
+				SubSystem="2"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -204,155 +400,179 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath=".\aes_modes.c"
+				RelativePath=".\src\aes_modes.c"
 				>
 			</File>
 			<File
-				RelativePath=".\aescrypt.c"
+				RelativePath=".\src\aescrypt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\aeskey.c"
+				RelativePath=".\src\aeskey.c"
 				>
 			</File>
 			<File
-				RelativePath=".\aestab.c"
+				RelativePath=".\src\aestab.c"
 				>
 			</File>
 			<File
-				RelativePath=".\bookmark.c"
+				RelativePath=".\src\apiemulator.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cache.c"
+				RelativePath=".\src\bookmark.c"
 				>
 			</File>
 			<File
-				RelativePath=".\clipboard.c"
+				RelativePath=".\src\cache.c"
 				>
 			</File>
 			<File
-				RelativePath=".\codecnv.c"
+				RelativePath=".\src\clipboard.c"
 				>
 			</File>
 			<File
-				RelativePath=".\connect.c"
+				RelativePath=".\src\codecnv.c"
 				>
 			</File>
 			<File
-				RelativePath=".\diskfree.c"
+				RelativePath=".\src\connect.c"
 				>
 			</File>
 			<File
-				RelativePath=".\dlgsize.c"
+				RelativePath=".\src\diskfree.c"
 				>
 			</File>
 			<File
-				RelativePath=".\Resource_eng\FFFTP-eng.rc"
+				RelativePath=".\src\dlgsize.c"
 				>
 			</File>
 			<File
-				RelativePath=".\filelist.c"
+				RelativePath=".\Resource_eng\ffftp.rc"
 				>
 			</File>
 			<File
-				RelativePath=".\ftpproc.c"
+				RelativePath=".\src\filelist.c"
 				>
 			</File>
 			<File
-				RelativePath=".\getput.c"
+				RelativePath=".\src\ftpproc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\history.c"
+				RelativePath=".\src\getput.c"
 				>
 			</File>
 			<File
-				RelativePath=".\hostman.c"
+				RelativePath=".\src\history.c"
 				>
 			</File>
 			<File
-				RelativePath=".\local.c"
+				RelativePath=".\src\hostman.c"
 				>
 			</File>
 			<File
-				RelativePath=".\lvtips.c"
+				RelativePath=".\src\local.c"
 				>
 			</File>
 			<File
-				RelativePath=".\main.c"
+				RelativePath=".\src\lvtips.c"
 				>
 			</File>
 			<File
-				RelativePath=".\md4.c"
+				RelativePath=".\src\main.c"
 				>
 			</File>
 			<File
-				RelativePath=".\md5.c"
+				RelativePath=".\src\mbswrapper.c"
 				>
 			</File>
 			<File
-				RelativePath=".\misc.c"
+				RelativePath=".\src\md4.c"
 				>
 			</File>
 			<File
-				RelativePath=".\OleDragDrop.c"
+				RelativePath=".\src\md5.c"
 				>
 			</File>
 			<File
-				RelativePath=".\option.c"
+				RelativePath=".\src\misc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\ras.c"
+				RelativePath=".\src\OleDragDrop.c"
 				>
 			</File>
 			<File
-				RelativePath=".\regexp.c"
+				RelativePath=".\src\option.c"
 				>
 			</File>
 			<File
-				RelativePath=".\registory.c"
+				RelativePath=".\src\protectprocess.c"
 				>
 			</File>
 			<File
-				RelativePath=".\remote.c"
+				RelativePath=".\src\punycode.c"
 				>
 			</File>
 			<File
-				RelativePath=".\sha.c"
+				RelativePath=".\src\ras.c"
 				>
 			</File>
 			<File
-				RelativePath=".\skey.c"
+				RelativePath=".\src\regexp.c"
 				>
 			</File>
 			<File
-				RelativePath=".\socket.c"
+				RelativePath=".\src\registry.c"
 				>
 			</File>
 			<File
-				RelativePath=".\statuswin.c"
+				RelativePath=".\src\remote.c"
 				>
 			</File>
 			<File
-				RelativePath=".\taskwin.c"
+				RelativePath=".\src\sha.c"
 				>
 			</File>
 			<File
-				RelativePath=".\tool.c"
+				RelativePath=".\src\skey.c"
 				>
 			</File>
 			<File
-				RelativePath=".\toolmenu.c"
+				RelativePath=".\src\socket.c"
 				>
 			</File>
 			<File
-				RelativePath=".\updatebell.c"
+				RelativePath=".\src\socketwrapper.c"
 				>
 			</File>
 			<File
-				RelativePath=".\wildcard.c"
+				RelativePath=".\src\statuswin.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\taskwin.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\tool.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\toolmenu.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\updatebell.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\updater.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\wildcard.c"
 				>
 			</File>
 		</Filter>
@@ -361,11 +581,31 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath=".\common.h"
+				RelativePath=".\src\apiemulator.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\common.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\mbswrapper.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\protectprocess.h"
 				>
 			</File>
 			<File
 				RelativePath=".\Resource_eng\resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\socketwrapper.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\updater.h"
 				>
 			</File>
 		</Filter>
@@ -418,6 +658,14 @@
 			RelativePath=".\Resource_eng\ffftp.exe.manifest"
 			>
 			<FileConfiguration
+				Name="Debug|Win32"
+				ExcludedFromBuild="true"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
 				Name="Release|Win32"
 				>
 				<Tool
@@ -425,8 +673,15 @@
 				/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Debug|Win32"
+				Name="Debug|x64"
 				ExcludedFromBuild="true"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|x64"
 				>
 				<Tool
 					Name="VCCustomBuildTool"
