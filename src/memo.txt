@@ -1,0 +1,34 @@
+■作業メモ 2018/06/04
+
++ ffftp.core -- UI非依存のコアライブラリ(lib形式)
+ - src       -- v2 のコード
+ + inc       -- export 用のヘッダファイル(c++)
+ - contrib/openssl/include/openssl -- openssl 用
+ - dist/amd64                      -- dll
+ - doc
+ - helphtml
+ - OpenSSL
+ - Package  -- インストーラ作成
+ - Resource -- 内部リソース
+ - utf8msg  -
+
++ ffftp.mfc  -- MFC UI
+ - src
+ - Resource
+
++ ffftp.console -- コンソール UI
+ + src
+ 
+
+* 内部コードをUTF8に統一する std::string u8プレフィックス
+* ffftp.core へのアクセスは, ffftp.core/inc を通して行われる
+  * インターフェースは c++ で作る（最終的にはC/C#インターフェースも作る）
+
+
+■作業手順
+
+1. ffftp.v2 から ffftp.core へ移行
+2. UI 部分を ffftp.mfc へ引きはがす
+2.1 UI 部分は v2 のままで、リソースとダイアログだけ移行させる。
+2.2 ビルドして、v2 と同じ動作まで確認
+3
