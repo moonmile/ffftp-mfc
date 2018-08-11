@@ -119,7 +119,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>..\ffftp.core\x64\debug\ffftp.core.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\x64\debug\ffftp.core.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -209,9 +209,16 @@
     <ResourceCompile Include="ffftpmfc.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
     <Image Include="res\ffftp.mfc.ico" />
     <Image Include="res\ffftp.mfcDoc.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon2.ico" />
+    <Image Include="res\list_16.bmp" />
+    <Image Include="res\list_bmp.bmp" />
+    <Image Include="res\main_too.bmp" />
     <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\toolbar1.bmp" />
     <Image Include="res\Toolbar256.bmp" />
     <Image Include="res\userimages.bmp" />
   </ItemGroup>

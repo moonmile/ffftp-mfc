@@ -75,6 +75,27 @@
     <Image Include="res\Toolbar256.bmp">
       <Filter>リソース ファイル</Filter>
     </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\icon2.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\toolbar1.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\main_too.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\list_bmp.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\list_16.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ffftpmfc.rc2">
