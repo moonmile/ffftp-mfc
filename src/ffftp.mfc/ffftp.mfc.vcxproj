@@ -275,6 +275,9 @@
     <ClInclude Include="ffftp.mfcDoc.h" />
     <ClInclude Include="ffftp.mfcView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="PaneLeft.h" />
+    <ClInclude Include="PaneRight.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -370,6 +373,9 @@
     <ClCompile Include="ffftp.mfcDoc.cpp" />
     <ClCompile Include="ffftp.mfcView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="PaneLeft.cpp" />
+    <ClCompile Include="PaneRight.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

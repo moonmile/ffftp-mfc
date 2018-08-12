@@ -294,6 +294,15 @@
     <ClInclude Include="DlgOtpCalc.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="PaneLeft.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="PaneRight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ffftp.mfc.cpp">
@@ -567,6 +576,15 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="DlgUserName.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="PaneLeft.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="PaneRight.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
