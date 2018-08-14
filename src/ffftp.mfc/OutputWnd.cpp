@@ -45,9 +45,7 @@ int COutputWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 出力ペインの作成:
 	const DWORD dwStyle = LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL;
 
-	if (!m_wndOutputBuild.Create(dwStyle, rectDummy, &m_wndTabs, 2) ||
-		!m_wndOutputDebug.Create(dwStyle, rectDummy, &m_wndTabs, 3) ||
-		!m_wndOutputFind.Create(dwStyle, rectDummy, &m_wndTabs, 4))
+	if (!m_wndOutputDebug.Create(dwStyle, rectDummy, &m_wndTabs, 2)) 
 	{
 		TRACE0("出力ウィンドウを作成できませんでした\n");
 		return -1;      // 作成できない場合
@@ -59,20 +57,12 @@ int COutputWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	BOOL bNameValid;
 
 	// 一覧ウィンドウをタブに割り当てます:
-	bNameValid = strTabName.LoadString(IDS_BUILD_TAB);
-	ASSERT(bNameValid);
-	m_wndTabs.AddTab(&m_wndOutputBuild, strTabName, (UINT)0);
 	bNameValid = strTabName.LoadString(IDS_DEBUG_TAB);
 	ASSERT(bNameValid);
 	m_wndTabs.AddTab(&m_wndOutputDebug, strTabName, (UINT)1);
-	bNameValid = strTabName.LoadString(IDS_FIND_TAB);
-	ASSERT(bNameValid);
-	m_wndTabs.AddTab(&m_wndOutputFind, strTabName, (UINT)2);
 
 	// 出力タブにダミー テキストを入力します
-	FillBuildWindow();
 	FillDebugWindow();
-	FillFindWindow();
 
 	return 0;
 }
@@ -106,9 +96,6 @@ void COutputWnd::AdjustHorzScroll(CListBox& wndListBox)
 
 void COutputWnd::FillBuildWindow()
 {
-	m_wndOutputBuild.AddString(_T("ビルド出力データがここに表示されます。"));
-	m_wndOutputBuild.AddString(_T("出力データはリスト ビューの各行に表示されます"));
-	m_wndOutputBuild.AddString(_T("表示方法を変更することもできます..."));
 }
 
 void COutputWnd::FillDebugWindow()
@@ -120,16 +107,11 @@ void COutputWnd::FillDebugWindow()
 
 void COutputWnd::FillFindWindow()
 {
-	m_wndOutputFind.AddString(_T("検索出力データがここに表示されます。"));
-	m_wndOutputFind.AddString(_T("出力データはリスト ビューの各行に表示されます"));
-	m_wndOutputFind.AddString(_T("表示方法を変更することもできます..."));
 }
 
 void COutputWnd::UpdateFonts()
 {
-	m_wndOutputBuild.SetFont(&afxGlobalData.fontRegular);
 	m_wndOutputDebug.SetFont(&afxGlobalData.fontRegular);
-	m_wndOutputFind.SetFont(&afxGlobalData.fontRegular);
 }
 
 /////////////////////////////////////////////////////////////////////////////
