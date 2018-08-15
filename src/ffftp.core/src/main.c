@@ -106,6 +106,10 @@ static const char FtpClassStr[] = "FFFTPWin";
 static HINSTANCE hInstFtp;
 static HWND hWndFtp = NULL;
 static HWND hWndCurFocus = NULL;
+// by masuda
+void SetFtpInst(HINSTANCE instance) { hInstFtp = instance; }
+void SetMainHwnd(HWND hwnd) { hWndFtp = hwnd; }
+
 
 static HACCEL Accel;
 static HBRUSH RootColorBrush = NULL;

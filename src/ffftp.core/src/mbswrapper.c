@@ -840,7 +840,8 @@ int WideCharToMultiByteAlternative(UINT CodePage, DWORD dwFlags, LPCWSTR lpWideC
 #define END_ROUTINE						}while(0);end_of_routine:
 #define QUIT_ROUTINE					goto end_of_routine;
 
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
+// by masuda ここは呼び出されない
+int WINAPI _wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
 	int r = 0;
 	char* pm0 = NULL;

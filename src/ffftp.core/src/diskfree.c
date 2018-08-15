@@ -39,6 +39,7 @@
 #include <windowsx.h>
 // IPv6対応
 //#include <winsock.h>
+#include <assert.h>
 
 #include "common.h"
 #include "resource.h"
@@ -70,9 +71,8 @@ void LoadKernelLib(void)
 
 	VerInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 	// GetVersionEx(&VerInfo);
-	ASSERT(); // GetVersionEx no use
-	if(((VerInfo.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) && (VerInfo.dwBuildNumber > 1000)) ||
-	   (VerInfo.dwPlatformId == VER_PLATFORM_WIN32_NT))
+//	if(((VerInfo.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) && (VerInfo.dwBuildNumber > 1000)) ||
+//	   (VerInfo.dwPlatformId == VER_PLATFORM_WIN32_NT))
 	{
 		if((m_hDll = LoadLibrary("kernel32.dll")) != NULL)
 		{
