@@ -1062,11 +1062,13 @@ static LRESULT FileListCommonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPA
 					}
 					
 					os_info.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+#if 0
 					GetVersionEx(&os_info);
 					if(os_info.dwPlatformId == VER_PLATFORM_WIN32_NT){
 						NTFlag = TRUE;
 					}
-
+#endif
+					NTFlag = TRUE; // 固定
 					/* ドロップファイルリストの作成 */
 					/* NTの場合はUNICODEになるようにする */
 					*((HANDLE *)lParam) = CreateDropFileMem(FileNameList, filenum, NTFlag);
@@ -1632,7 +1634,7 @@ static void AddDispFileList(FLISTANCHOR *Anchor, char *Name, FILETIME *Time, LON
 {
 	int i;
 	FILELIST *Pos;
-	FILELIST *Prev;
+	FILELIST *Prev = NULL;
 	FILELIST *New;
 	int FileSort;
 	int DirSort;
@@ -3659,7 +3661,7 @@ static int MakeLocalTree(char *Path, FILELIST **Base)
 static void AddFileList(FILELIST *Pkt, FILELIST **Base)
 {
 	FILELIST *Pos;
-	FILELIST *Prev;
+	FILELIST *Prev = NULL;
 
 	DoPrintf("FileList : NODE=%d : %s", Pkt->Node, Pkt->File);
 

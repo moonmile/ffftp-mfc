@@ -28,6 +28,7 @@
 /============================================================================*/
 
 #define	STRICT
+#include <winsock2.h>
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,7 +41,6 @@
 #include "resource.h"
 #include "sample.h"
 #include "sha.h"
-
 
 /*===== プロトタイプ =====*/
 
@@ -166,6 +166,11 @@ extern int MirDownDelNotify;
 
 extern int FolderAttr;
 extern int FolderAttrNum;
+
+#ifndef SUCCESS
+#define SUCCESS			1
+#define FAIL			0
+#endif
 
 /*----- マスタパスワードの設定 ----------------------------------------------
 *
@@ -1635,8 +1640,8 @@ static int ReadInReg(char *Name, REGDATATBL **Handle)
 	FILE *Strm;
 	char *Buf;
 	char *Tmp;
-	char *Data;
-	REGDATATBL *New;
+	char *Data = NULL;
+	REGDATATBL *New = NULL;
 	REGDATATBL *Pos;
 	int Sts;
 

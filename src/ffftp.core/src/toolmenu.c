@@ -239,7 +239,7 @@ int MakeToolBarWindow(HWND hWnd, HINSTANCE hInst)
 	DWORD NoDrives;
 	// 高DPI対応
 	HBITMAP hOriginal;
-	HBITMAP hResized;
+	HBITMAP hResized = NULL;
 
 	/*===== メインのツールバー =====*/
 

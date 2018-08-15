@@ -446,11 +446,14 @@ int ConnectRas(int Dialup, int UseThis, int Notify, char *Name)
 
 				Num = 0;
 				VerInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+#if 0
 				if(GetVersionEx(&VerInfo) == TRUE)
 				{
 					if(VerInfo.dwPlatformId == VER_PLATFORM_WIN32_NT)
 						Num = 1;
 				}
+#endif
+				Num = 1; // 固定
 
 				if(Num == 1)
 				{

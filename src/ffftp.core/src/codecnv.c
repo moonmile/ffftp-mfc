@@ -62,7 +62,7 @@ static int CheckOnSJIS(uchar *Pos, uchar *Btm);
 static int CheckOnEUC(uchar *Pos, uchar *Btm);
 static int ConvertIBMExtendedChar(int code);
 
-
+#if 0
 typedef enum _NORM_FORM
 {
 	NormalizationOther = 0,
@@ -71,7 +71,7 @@ typedef enum _NORM_FORM
 	NormalizationKC = 0x5,
 	NormalizationKD = 0x6
 } NORM_FORM;
-
+#endif
 typedef int (WINAPI* _NormalizeString)(NORM_FORM, LPCWSTR, int, LPWSTR, int);
 
 HMODULE hUnicodeNormalizationDll;

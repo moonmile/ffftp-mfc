@@ -7,7 +7,7 @@
 #include <ws2tcpip.h>
 #include <windows.h>
 #include <mmsystem.h>
-typedef SOCKADDR_STORAGE_XP SOCKADDR_STORAGE;
+// typedef SOCKADDR_STORAGE_XP SOCKADDR_STORAGE;
 typedef SOCKADDR_STORAGE *PSOCKADDR_STORAGE, FAR *LPSOCKADDR_STORAGE;
 #include <winhttp.h>
 

@@ -2643,7 +2643,7 @@ static int ReadInReg(char *Name, REGDATATBL **Handle)
 	FILE *Strm;
 	char *Buf;
 	char *Tmp;
-	char *Data;
+	char *Data = NULL;
 	REGDATATBL *New;
 	REGDATATBL *Pos;
 	int Sts;

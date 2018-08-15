@@ -93,9 +93,6 @@
     <ClInclude Include="src\updater.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="src\resource.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

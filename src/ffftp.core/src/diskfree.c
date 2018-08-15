@@ -65,10 +65,12 @@ static FUNC_GETDISKFREESPACEEX m_GetDiskFreeSpaceEx = NULL;
 
 void LoadKernelLib(void)
 {
-	OSVERSIONINFO VerInfo;
+	OSVERSIONINFO VerInfo ;
+	memset(&VerInfo, 0, sizeof(VerInfo));
 
 	VerInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-	GetVersionEx(&VerInfo);
+	// GetVersionEx(&VerInfo);
+	ASSERT(); // GetVersionEx no use
 	if(((VerInfo.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) && (VerInfo.dwBuildNumber > 1000)) ||
 	   (VerInfo.dwPlatformId == VER_PLATFORM_WIN32_NT))
 	{

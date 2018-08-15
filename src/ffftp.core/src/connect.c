@@ -2649,7 +2649,7 @@ SOCKET GetFTPListenSocketIPv4(SOCKET ctrl_skt, int *CancelCheckWork)
 	struct sockaddr_in CurSockAddr;		/* 接続先ホストのアドレス情報 */
 	SOCKET listen_skt;
 	int iLength;
-	char *a,*p;
+	char *a = NULL,*p = NULL;
 	struct sockaddr_in saCtrlAddr;
 	struct sockaddr_in saTmpAddr;
 	SOCKS4CMD Socks4Cmd;
@@ -2850,7 +2850,7 @@ SOCKET GetFTPListenSocketIPv6(SOCKET ctrl_skt, int *CancelCheckWork)
 	struct sockaddr_in6 CurSockAddr;		/* 接続先ホストのアドレス情報 */
 	SOCKET listen_skt;
 	int iLength;
-	char *a,*p;
+	char *a = NULL,*p = NULL;
 	struct sockaddr_in6 saCtrlAddr;
 	struct sockaddr_in6 saTmpAddr;
 	SOCKS5REQUEST Socks5Cmd;
