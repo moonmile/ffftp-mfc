@@ -165,6 +165,9 @@ extern int DispPermissionsNumber;
 static HWND hWndListLocal = NULL;
 static HWND hWndListRemote = NULL;
 
+void SetLocalHwnd(HWND hwnd) { hWndListLocal = hwnd; }
+void SetRemoteHwnd(HWND hwnd) { hWndListRemote = hwnd; }
+
 static WNDPROC LocalProcPtr;
 static WNDPROC RemoteProcPtr;
 

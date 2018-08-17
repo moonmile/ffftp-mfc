@@ -87,7 +87,7 @@ static int CheckMasterPassword(char *Str, char *Ini);
 static int GetTokenAfterOption(char *Str, char *Result, const char* Opt1, const char* Opt2 );
 static char *GetToken(char *Str, char *Buf);
 static void ExitProc(HWND hWnd);
-static void ChangeDir(int Win, char *Path);
+void ChangeDir(int Win, char *Path);
 static void ResizeWindowProc(void);
 static void CalcWinSize(void);
 // static void AskWindowPos(HWND hWnd);
@@ -2810,7 +2810,7 @@ void DoubleClickProc(int Win, int Mode, int App)
 *		フォルダ同時移動の処理も行う
 *----------------------------------------------------------------------------*/
 
-static void ChangeDir(int Win, char *Path)
+void ChangeDir(int Win, char *Path)
 {
 	int Sync;
 	char Local[FMAX_PATH+1];

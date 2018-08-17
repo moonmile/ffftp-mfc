@@ -4,6 +4,8 @@
 #endif
 #include "PaneLeft.h"
 #include "MainFrm.h"
+#include "../ffftp.core/FFFtpCore.h"
+extern FFFtp::FFFtpCore ffftpcore;
 
 IMPLEMENT_DYNCREATE(PaneLeft, CFormView)
 
@@ -13,6 +15,7 @@ BEGIN_MESSAGE_MAP(PaneLeft, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON2, &PaneLeft::OnBnClickedButtonOpen)
 	ON_WM_SIZE()
 	ON_WM_CLOSE()
+	ON_NOTIFY(NM_RCLICK, IDC_LIST1, &CMainFrame::OnLvnItemchangedListLeft)
 END_MESSAGE_MAP()
 
 
@@ -26,25 +29,20 @@ void PaneLeft::OnInitialUpdate()
 	ResizeParentToFit();
 
 	// リストコントロールの初期化
-	int i = 0;
-	HDITEM lvc;
+	m_lv.SetExtendedStyle(m_lv.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
+	// m_lv.SetView(1);
+	LVCOLUMN lvcol;
+	memset(&lvcol, 0, sizeof(lvcol));
+	m_lv.InsertColumn(0, "名前", 0, 100, 0);
+	m_lv.InsertColumn(1, "日付", 0, 50, 0);
+	m_lv.InsertColumn(2, "サイズ", 0, 50, 0);
+	m_lv.InsertColumn(3, "種類", 0, 50, 0);
 
-	auto hc = m_lv.GetHeaderCtrl();
-
-	lvc.mask = HDI_TEXT | HDI_WIDTH | HDI_FORMAT;
-	lvc.fmt = HDF_STRING | HDF_CENTER;
-	lvc.pszText = L"名前";
-	lvc.cxy = 100;
-	hc->InsertItem(i++, &lvc);
-	lvc.pszText = L"日付";
-	lvc.cxy = 50;
-	hc->InsertItem(i++, &lvc);
-	lvc.pszText = L"サイズ";
-	lvc.cxy = 50;
-	hc->InsertItem(i++, &lvc);
-	lvc.pszText = L"種類";
-	lvc.cxy = 50;
-	hc->InsertItem(i++, &lvc);
+	// SetLocalHwnd(m_lv.m_hWnd);
+	// ローカル(PaneLeft)を設定
+	// ChangeDir(0, "C:\\");	// WIN_LOCAL
+	ffftpcore.Local.SetHwnd(m_lv.m_hWnd);
+	ffftpcore.Local.ChangeDir("c:\\");
 }
 
 void PaneLeft::DoDataExchange(CDataExchange* pDX)
@@ -66,13 +64,13 @@ void PaneLeft::OnClose()
 void PaneLeft::OnBnClickedButtonUp()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	AfxMessageBox(L"上へボタンを押した");
+	AfxMessageBox("上へボタンを押した");
 }
 
 void PaneLeft::OnBnClickedButtonOpen()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	AfxMessageBox(L"開くボタンを押した");
+	AfxMessageBox("開くボタンを押した");
 }
 
 void PaneLeft::OnSize(UINT nType, int cx, int cy)
