@@ -13,6 +13,7 @@ public:
 	CButton m_btnOpen;
 	CComboBox m_cbFolder;
 	CListCtrl m_lv;
+	CBitmap m_imageBtnUp, m_imageBtnOpen;
 
 protected:
 	afx_msg void OnBnClickedButtonUp();

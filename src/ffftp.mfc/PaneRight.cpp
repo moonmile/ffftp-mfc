@@ -28,6 +28,13 @@ void PaneRight::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
+	// ボタンにアイコンを表示
+	m_imageBtnUp.LoadBitmap(IDB_BTN_UP);
+	m_btnUp.ModifyStyle(0, BS_BITMAP);
+	m_btnUp.SetBitmap((HBITMAP)m_imageBtnUp);
+	m_imageBtnOpen.LoadBitmap(IDB_BTN_OPEN);
+	m_btnOpen.ModifyStyle(0, BS_BITMAP);
+	m_btnOpen.SetBitmap((HBITMAP)m_imageBtnOpen);
 	// リストコントロールの初期化
 	// m_lv.SetView(1);
 	LVCOLUMN lvcol;
@@ -60,7 +67,7 @@ void PaneRight::OnClose()
 void PaneRight::OnBnClickedButtonUp()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	AfxMessageBox("上へボタンを押した");
+	ffftpcore.Local.Chdir("..");
 }
 
 void PaneRight::OnBnClickedButtonOpen()

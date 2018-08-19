@@ -390,6 +390,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap2.bmp" />
+    <Image Include="res\bmp00001.bmp" />
+    <Image Include="res\bmp_btnopen.bmp" />
+    <Image Include="res\bmp_btnup.bmp" />
     <Image Include="res\ffftp.mfc.ico" />
     <Image Include="res\ffftp.mfcDoc.ico" />
     <Image Include="res\icon1.ico" />
@@ -409,6 +413,9 @@
     <ProjectReference Include="..\ffftp.core\ffftp.core.vcxproj">
       <Project>{7cd37286-cef5-4e5e-938b-2e07a9f109fc}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\ffftp.mfc.exe.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
