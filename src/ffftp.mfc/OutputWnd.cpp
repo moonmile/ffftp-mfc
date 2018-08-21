@@ -4,6 +4,9 @@
 #include "OutputWnd.h"
 #include "Resource.h"
 #include "MainFrm.h"
+/// FFFtpCore の呼び出し
+#include "../ffftp.core/FFFtpCore.h"
+extern FFFtp::FFFtpCore ffftpcore;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,7 +48,8 @@ int COutputWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 出力ペインの作成:
 	const DWORD dwStyle = LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL;
 
-	if (!m_wndOutputDebug.Create(dwStyle, rectDummy, &m_wndTabs, 2)) 
+	if (!m_wndOutput.Create(dwStyle, rectDummy, &m_wndTabs, 2) ||
+		!m_wndOutputDebug.Create(dwStyle, rectDummy, &m_wndTabs, 3))
 	{
 		TRACE0("出力ウィンドウを作成できませんでした\n");
 		return -1;      // 作成できない場合
@@ -57,12 +61,17 @@ int COutputWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	BOOL bNameValid;
 
 	// 一覧ウィンドウをタブに割り当てます:
+	bNameValid = strTabName.LoadString(IDS_BUILD_TAB);
+	ASSERT(bNameValid);
+	m_wndTabs.AddTab(&m_wndOutput, strTabName, (UINT)0);
 	bNameValid = strTabName.LoadString(IDS_DEBUG_TAB);
 	ASSERT(bNameValid);
 	m_wndTabs.AddTab(&m_wndOutputDebug, strTabName, (UINT)1);
 
 	// 出力タブにダミー テキストを入力します
 	FillDebugWindow();
+
+	ffftpcore.Output.SetHwnd(&m_wndOutput, &m_wndOutputDebug);
 
 	return 0;
 }
@@ -111,6 +120,7 @@ void COutputWnd::FillFindWindow()
 
 void COutputWnd::UpdateFonts()
 {
+	m_wndOutput.SetFont(&afxGlobalData.fontRegular);
 	m_wndOutputDebug.SetFont(&afxGlobalData.fontRegular);
 }
 

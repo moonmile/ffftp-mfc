@@ -23,6 +23,8 @@ END_MESSAGE_MAP()
 PaneLeft::PaneLeft() : CFormView(IDD_FFFTPMFC_PANE_LEFT)
 {
 }
+
+bool m_init = false;
 void PaneLeft::OnInitialUpdate()
 {
 	CFormView::OnInitialUpdate();
@@ -56,8 +58,9 @@ void PaneLeft::OnInitialUpdate()
 	// SetLocalHwnd(m_lv.m_hWnd);
 	// ローカル(PaneLeft)を設定
 	// ChangeDir(0, "C:\\");	// WIN_LOCAL
-	ffftpcore.Local.SetHwnd(m_lv.m_hWnd);
+	ffftpcore.Local.SetHwnd(m_lv.m_hWnd, &m_cbFolder);
 	ffftpcore.Local.Chdir("c:\\");
+	m_init = true;
 }
 
 void PaneLeft::DoDataExchange(CDataExchange* pDX)
@@ -85,13 +88,15 @@ void PaneLeft::OnBnClickedButtonUp()
 void PaneLeft::OnBnClickedButtonOpen()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	AfxMessageBox("開くボタンを押した");
+	CString text;
+	m_cbFolder.GetWindowText(text);
+	ffftpcore.Local.Chdir(const_cast<char*>((LPCSTR)text));
 }
 
 void PaneLeft::OnSize(UINT nType, int cx, int cy)
 {
 	CFormView::OnSize(nType, cx, cy);
-
+	if (m_init == false) return;
 	// TODO: ここにメッセージ ハンドラー コードを追加します。
 	TRACE("in OnSize %d %d", cx, cy);
 	if (this->m_hWnd != nullptr)

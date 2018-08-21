@@ -1740,7 +1740,14 @@ int AskSyncMoveMode(void)
 *	Return Value
 *		なし
 *----------------------------------------------------------------------------*/
+#if FFFTP_MFC
+void(*FFFtpRemoteHost_AddHistory)(char*);
+void SetRemoteDirHist(char *Path) {
+	if (FFFtpRemoteHost_AddHistory) FFFtpRemoteHost_AddHistory(Path);
+}
 
+
+#else
 void SetRemoteDirHist(char *Path)
 {
 	int i;
@@ -1755,7 +1762,7 @@ void SetRemoteDirHist(char *Path)
 	strcpy(RemoteCurDir, Path);
 	return;
 }
-
+#endif
 
 /*----- ローカル側のヒストリ一覧ウインドウに登録 -------------------------------
 *
@@ -1766,6 +1773,12 @@ void SetRemoteDirHist(char *Path)
 *		なし
 *----------------------------------------------------------------------------*/
 
+#if FFFTP_MFC
+void(*FFFtpLocalHost_AddHistory)(char*);
+void SetLocalDirHist(char *Path) {
+	if (FFFtpLocalHost_AddHistory) FFFtpLocalHost_AddHistory(Path);
+}
+#else
 void SetLocalDirHist(char *Path)
 {
 	int i;
@@ -1778,7 +1791,7 @@ void SetLocalDirHist(char *Path)
 	strcpy(LocalCurDir, Path);
 	return;
 }
-
+#endif
 
 /*----- ローカルのカレントディレクトリを返す ----------------------------------
 *

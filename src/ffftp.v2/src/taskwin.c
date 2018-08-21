@@ -162,6 +162,19 @@ HWND GetTaskWnd(void)
 *	Return Value
 *		なし
 *----------------------------------------------------------------------------*/
+#if !FFFTP_MFC
+void(*FFFtpOutput_SetMessage)(char*);
+
+void SetTaskMsg(char *szFormat, ...)
+{
+	static char szBuf[1024];
+	va_list vaArgs;
+	va_start(vaArgs, szFormat);
+	wvsprintf(szBuf, szFormat, vaArgs);
+
+	FFFtpOutput_SetMessage(szBuf);
+}
+#else
 
 void SetTaskMsg(char *szFormat, ...)
 {
@@ -227,7 +240,7 @@ void SetTaskMsg(char *szFormat, ...)
 
 	return;
 }
-
+#endif
 
 /*----- タスクメッセージをファイルに保存する ----------------------------------
 *

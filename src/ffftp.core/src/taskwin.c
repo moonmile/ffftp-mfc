@@ -162,6 +162,22 @@ HWND GetTaskWnd(void)
 *	Return Value
 *		なし
 *----------------------------------------------------------------------------*/
+#if FFFTP_MFC
+
+void(*FFFtpOutput_SetMessage)(char*);
+
+void SetTaskMsg(char *szFormat, ...)
+{
+	static char szBuf[1024*2];	// TODO:ひとまず2024バイトだけ確保
+	va_list vaArgs;
+	va_start(vaArgs, szFormat);
+	wvsprintf(szBuf, szFormat, vaArgs);
+
+	if (FFFtpOutput_SetMessage != NULL)
+		FFFtpOutput_SetMessage(szBuf);
+}
+
+#else
 
 void SetTaskMsg(char *szFormat, ...)
 {
@@ -227,7 +243,7 @@ void SetTaskMsg(char *szFormat, ...)
 
 	return;
 }
-
+#endif
 
 /*----- タスクメッセージをファイルに保存する ----------------------------------
 *
@@ -302,7 +318,21 @@ void DispTaskMsg(void)
 *	Return Value
 *		なし
 *----------------------------------------------------------------------------*/
+#if FFFTP_MFC
 
+void(*FFFtpOutput_DebugMessage)(char*);
+
+void DoPrintf(char *szFormat, ...)
+{
+	static char szBuf[1024 * 2];	// TODO:ひとまず2024バイトだけ確保
+	va_list vaArgs;
+	va_start(vaArgs, szFormat);
+	wvsprintf(szBuf, szFormat, vaArgs);
+
+	if (FFFtpOutput_DebugMessage != NULL)
+		FFFtpOutput_DebugMessage(szBuf);
+}
+#else
 void DoPrintf(char *szFormat, ...)
 {
 	va_list vaArgs;
@@ -339,7 +369,7 @@ void DoPrintf(char *szFormat, ...)
 	return;
 }
 
-
+#endif
 /*----- デバッグコンソールにメッセージを表示する ------------------------------
 *
 *	Parameter

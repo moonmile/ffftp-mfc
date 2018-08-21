@@ -32,6 +32,7 @@ public:
 	// ‘®«
 protected:
 	CMFCTabCtrl	m_wndTabs;
+	COutputList m_wndOutput;
 	COutputList m_wndOutputDebug;
 
 protected:

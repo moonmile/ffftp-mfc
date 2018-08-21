@@ -44,7 +44,7 @@ void PaneRight::OnInitialUpdate()
 	m_lv.InsertColumn(2, "サイズ", 0, 50, 0);
 	m_lv.InsertColumn(3, "種類", 0, 50, 0);
 
-	ffftpcore.Remote.SetHwnd(m_lv.m_hWnd);
+	ffftpcore.Remote.SetHwnd(m_lv.m_hWnd, &m_cbFolder);
 
 }
 
@@ -67,13 +67,15 @@ void PaneRight::OnClose()
 void PaneRight::OnBnClickedButtonUp()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	ffftpcore.Local.Chdir("..");
+	ffftpcore.Remote.Chdir("..");
 }
 
 void PaneRight::OnBnClickedButtonOpen()
 {
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
-	AfxMessageBox("開くボタンを押した");
+	CString text;
+	m_cbFolder.GetWindowText(text);
+	ffftpcore.Remote.Chdir(const_cast<char*>((LPCSTR)text));
 }
 
 void PaneRight::OnSize(UINT nType, int cx, int cy)
